@@ -36,25 +36,58 @@ if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-mot
   elements.forEach(el => el.classList.add('visible'));
 }
 
-const form = document.querySelector('#contact-form');
-form?.addEventListener('submit', event => {
-  event.preventDefault();
-  if (!form.reportValidity()) return;
-  const data = new FormData(form);
-  const name = String(data.get('name') || '').trim();
-  const company = String(data.get('company') || '').trim();
-  const email = String(data.get('email') || '').trim();
-  const service = String(data.get('service') || '').trim();
-  const message = String(data.get('message') || '').trim();
-  const subject = `NDC Project Inquiry — ${service}`;
-  const body = [
-    `Name: ${name}`,
-    `Business: ${company || 'Not provided'}`,
-    `Email: ${email}`,
-    `Service: ${service}`,
-    '',
-    'Project details:',
-    message
-  ].join('\n');
-  window.location.href = `mailto:contact@nextdimensioncustoms.in?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+/* ==========================================
+   NDC CONTACT FORM — EMAIL HANDLER
+========================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("contact-form");
+
+  if (!form) return;
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    if (!form.reportValidity()) return;
+
+    const data = new FormData(form);
+
+    const name = String(data.get("name") || "").trim();
+    const company = String(data.get("company") || "").trim();
+    const email = String(data.get("email") || "").trim();
+    const service = String(data.get("service") || "").trim();
+    const message = String(data.get("message") || "").trim();
+
+    const recipient = "contact@nextdimensioncustoms.in";
+
+    const subject =
+      `New Project Inquiry - ${company || name} | NDC`;
+
+    const body = [
+      "Hello Next Dimension Customs Team,",
+      "",
+      "I would like to discuss a software development project.",
+      "",
+      `Name: ${name}`,
+      `Company: ${company || "Not provided"}`,
+      `Email: ${email}`,
+      `Service Required: ${service}`,
+      "",
+      "Project Details:",
+      message,
+      "",
+      "Looking forward to hearing from you.",
+      "",
+      "Regards,",
+      name
+    ].join("\n");
+
+    const mailto =
+      `mailto:${recipient}` +
+      `?subject=${encodeURIComponent(subject)}` +
+      `&body=${encodeURIComponent(body)}`;
+
+    window.location.href = mailto;
+  });
 });
