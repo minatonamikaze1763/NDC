@@ -91,3 +91,9 @@ document.addEventListener("DOMContentLoaded", () => {
     window.location.href = mailto;
   });
 });
+
+// The fixed header is not a scroll target; home links scroll the document.
+document.querySelectorAll('a[href="#top"]').forEach(link => link.addEventListener('click', event => {
+  event.preventDefault();
+  window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
+}));
