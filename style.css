@@ -1232,7 +1232,7 @@ h1 {
   border-radius: 18px;
   background: #d7bd5514;
   color: var(--purple);
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: "Space Grotesk", sans-serif;
   font-size: 24px;
   font-weight: 600;
 }
@@ -1260,11 +1260,30 @@ h1 {
   font-weight: 700;
   line-height: 1.5;
 }
-.team-summary { margin-top: 20px; color: var(--muted); font-size: 14px; line-height: 1.8; }
-.team-card h4 { margin-top: 28px; font-size: 13px; font-weight: 600; }
-.team-responsibilities { margin: 14px 0 0; padding-left: 18px; color: var(--muted); font-size: 13px; line-height: 1.8; }
-.team-responsibilities li + li { margin-top: 10px; }
-.team-responsibilities li::marker { color: var(--purple); }
+.team-summary {
+  margin-top: 20px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
+.team-card h4 {
+  margin-top: 28px;
+  font-size: 13px;
+  font-weight: 600;
+}
+.team-responsibilities {
+  margin: 14px 0 0;
+  padding-left: 18px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+.team-responsibilities li + li {
+  margin-top: 10px;
+}
+.team-responsibilities li::marker {
+  color: var(--purple);
+}
 .team-ai-badge {
   display: inline-block;
   vertical-align: middle;
@@ -1272,15 +1291,23 @@ h1 {
   border: 1px solid #d7bd5540;
   border-radius: 20px;
   color: var(--purple);
-  font-family: 'DM Sans', sans-serif;
+  font-family: "DM Sans", sans-serif;
   font-size: 10px;
   font-weight: 500;
 }
 @media (max-width: 1050px) {
-  .team-grid { gap: 16px; }
-  .team-card { padding: 24px; }
+  .team-grid {
+    gap: 16px;
+  }
+  .team-card {
+    padding: 24px;
+  }
 }
 @media (max-width: 800px) {
-  .team-grid { grid-template-columns: 1fr; }
-  .team-card { padding: 28px; }
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+  .team-card {
+    padding: 28px;
+  }
 }
