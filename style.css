@@ -1587,3 +1587,16 @@ h1 {
     overflow-wrap: anywhere;
   }
 }
+
+
+/* Prevent decorative layers from expanding the mobile document width. */
+html {
+  overflow-x: clip;
+}
+
+@media (max-width: 800px) {
+  .site-glow {
+    right: 0;
+    width: min(850px, 100vw);
+  }
+}
