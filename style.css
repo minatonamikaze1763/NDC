@@ -105,12 +105,24 @@ button {
 }
 
 .header {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
   z-index: 100;
   background: rgba(9, 11, 19, 0.82);
   backdrop-filter: blur(18px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+/* Reserve space for the fixed navigation so page content is not covered. */
+body {
+  padding-top: 82px;
+}
+@media (max-width: 540px) {
+  body {
+    padding-top: 72px;
+  }
 }
 .nav-wrap {
   display: flex;
@@ -1057,6 +1069,8 @@ h1 {
     top: 82px;
     left: 0;
     right: 0;
+    max-height: calc(100dvh - 82px);
+    overflow-y: auto;
     display: none;
     flex-direction: column;
     padding: 24px;
@@ -1471,6 +1485,7 @@ h1 {
 
   .nav {
     top: 72px;
+    max-height: calc(100dvh - 72px);
   }
 
   .brand {
